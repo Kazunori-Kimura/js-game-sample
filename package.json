@@ -1,0 +1,38 @@
+{
+  "name": "js-game-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all -p watch server",
+    "build": "browserify -t babelify src/index.js > dist/bundle.js --debug",
+    "server": "browser-sync start --server --files \"*.html\" \"dist/*\"",
+    "watch": "chokidar \"src/**/*.js\" -c \"npm run build\""
+  },
+  "keywords": [],
+  "author": "kazunori.kimura",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-es2016": "^6.16.0",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.18.6",
+    "browserify": "^13.3.0",
+    "chokidar-cli": "^1.2.0",
+    "npm-run-all": "^4.0.0"
+  },
+  "dependencies": {},
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015",
+            "es2016"
+          ]
+        }
+      ]
+    ]
+  }
+}
