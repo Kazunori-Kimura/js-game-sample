@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prestart": "npm run build",
     "start": "npm-run-all -p watch server",
     "build": "browserify -t babelify src/index.js > dist/bundle.js --debug",
     "server": "browser-sync start --server --files \"*.html\" \"dist/*\"",
